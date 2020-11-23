@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.example.businesscard.util.BindingUtil" />
+
+        <variable
+            name="productItem"
+            type="com.example.businesscard.model.ProductDetail" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/card_background"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:text="@{productItem.login}"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ProgressBar
+                android:id="@+id/progressImageThumb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/imageThumb"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:adjustViewBounds="true"
+                app:avatarUrl="@{productItem.avatarUrl}" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/stockType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{`id : `+productItem.id}" />
+
+        <TextView
+            android:id="@+id/alcoholContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</layout>
